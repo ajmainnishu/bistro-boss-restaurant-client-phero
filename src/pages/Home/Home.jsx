@@ -4,6 +4,7 @@ import FoodCarousel from './FoodCarousel/FoodCarousel';
 import Boss from './Boss/Boss';
 import CallUs from './CallUs/CallUs';
 import OurMenu from './OurMenu/OurMenu';
+import Testimonials from './Testimonials/Testimonials';
 
 const Home = () => {
     return (
@@ -13,6 +14,7 @@ const Home = () => {
             <Boss></Boss>
             <CallUs></CallUs>
             <OurMenu></OurMenu>
+            <Testimonials></Testimonials>
         </div>
     );
 };

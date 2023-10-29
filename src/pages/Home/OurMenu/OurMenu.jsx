@@ -1,4 +1,3 @@
-import SectionTitle from "../../../shared/SectionTitle/SectionTitle";
 import ourMenuImg from '../../../assets/images/home/ourMenu/ourMenu.jpg';
 import moment from 'moment';
 import './OurMenu.css'
