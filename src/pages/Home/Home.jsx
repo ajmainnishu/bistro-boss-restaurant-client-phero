@@ -9,7 +9,7 @@ import { Helmet } from 'react-helmet-async';
 
 const Home = () => {
     return (
-        <div className='space-y-20 md:space-y-32'>
+        <div className='space-y-20 md:space-y-32 mb-20 md:mb-32'>
             <Helmet>
                 <title>Bistro Boss Restaurant</title>
             </Helmet>

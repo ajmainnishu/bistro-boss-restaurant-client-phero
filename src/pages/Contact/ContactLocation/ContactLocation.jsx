@@ -3,7 +3,7 @@ import { FaPhoneVolume, FaClock, FaMapMarkerAlt } from 'react-icons/fa';
 
 const ContactLocation = () => {
     return (
-        <div>
+        <div className="space-y-12">
             <SectionTitle title={'OUR LOCATION'} subTitle={'Visit Us'}></SectionTitle>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {/* item 1 */}
