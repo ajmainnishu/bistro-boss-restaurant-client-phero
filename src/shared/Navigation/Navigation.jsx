@@ -3,11 +3,11 @@ import { Link } from "react-router-dom";
 const Navigation = () => {
     // pages link
     const nav = <>
-        <li><Link className="font-extrabold text-xl hover:text-[#EEFF25]">HOME</Link></li>
-        <li><Link className="font-extrabold text-xl hover:text-[#EEFF25]">CONTACT US</Link></li>
+        <li><Link to={`/`} className="font-extrabold text-xl hover:text-[#EEFF25]">HOME</Link></li>
+        <li><Link to={`contact`} className="font-extrabold text-xl hover:text-[#EEFF25]">CONTACT US</Link></li>
         <li><Link className="font-extrabold text-xl hover:text-[#EEFF25]">DASHBOARD</Link></li>
-        <li><Link className="font-extrabold text-xl hover:text-[#EEFF25]">OUR MENU</Link></li>
-        <li><Link className="font-extrabold text-xl hover:text-[#EEFF25]">OUR SHOP</Link></li>
+        <li><Link to={`menu`} className="font-extrabold text-xl hover:text-[#EEFF25]">OUR MENU</Link></li>
+        <li><Link to={`shop`} className="font-extrabold text-xl hover:text-[#EEFF25]">OUR SHOP</Link></li>
     </>
     return (
         <div className="navbar justify-between fixed z-10 text-white bg-[#15151580] md:pt-8 md:pb-6 md:ps-14 md:pe-9">
