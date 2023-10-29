@@ -12,11 +12,11 @@ const Navigation = () => {
     return (
         <div className="navbar justify-between fixed z-10 text-white bg-[#15151580] md:pt-8 md:pb-6 md:ps-14 md:pe-9">
             <div>
+                {/* small device pages link */}
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                     </label>
-                    {/* small device pages link */}
                     <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow text-white bg-[#15151580] rounded-box w-52">
                         {nav}
                     </ul>

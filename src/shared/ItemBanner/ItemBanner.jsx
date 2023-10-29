@@ -1,5 +1,3 @@
-
-
 const ItemBanner = ({ title, details, info, heading, para }) => {
     return (
         <div className={info}>

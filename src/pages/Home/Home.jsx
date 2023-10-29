@@ -8,13 +8,17 @@ import Testimonials from './Testimonials/Testimonials';
 
 const Home = () => {
     return (
-        <div>
+        <div className='space-y-20 md:space-y-32'>
             <HomeBanner></HomeBanner>
-            <FoodCarousel></FoodCarousel>
-            <Boss></Boss>
-            <CallUs></CallUs>
+            <div className='w-10/12 lg:w-9/12 mx-auto space-y-20 md:space-y-32'>
+                <FoodCarousel></FoodCarousel>
+                <Boss></Boss>
+                <CallUs></CallUs>
+            </div>
             <OurMenu></OurMenu>
-            <Testimonials></Testimonials>
+            <div className='w-10/12 lg:w-9/12 mx-auto'>
+                <Testimonials></Testimonials>
+            </div>
         </div>
     );
 };
