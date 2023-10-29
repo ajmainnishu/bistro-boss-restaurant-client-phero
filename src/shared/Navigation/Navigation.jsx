@@ -10,7 +10,7 @@ const Navigation = () => {
         <li><Link className="font-extrabold text-xl hover:text-[#EEFF25]">OUR SHOP</Link></li>
     </>
     return (
-        <div className="navbar justify-between fixed z-10 text-white bg-[#15151580] pt-8 pb-6 ps-14 pe-9">
+        <div className="navbar justify-between fixed z-10 text-white bg-[#15151580] md:pt-8 md:pb-6 md:ps-14 md:pe-9">
             <div>
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -23,8 +23,8 @@ const Navigation = () => {
                 </div>
                 {/* website logo */}
                 <Link to={`/`} className="flex flex-col">
-                    <span className="font-[cinzel] font-[900] text-3xl">BISTRO BOSS</span>
-                    <span className="font-[cinzel] font-bold text-2xl">RESTAURANT</span>
+                    <span className="font-[cinzel] font-[900] md:text-3xl text-xl">BISTRO BOSS</span>
+                    <span className="font-[cinzel] font-bold md:text-2xl text-lg">RESTAURANT</span>
                 </Link>
             </div>
             <div>
