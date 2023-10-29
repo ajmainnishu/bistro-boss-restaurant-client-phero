@@ -15,7 +15,7 @@ module.exports = {
     "react/prop-types": "off",
     'react-refresh/only-export-components': [
       'warn',
-      { allowConstantExport: true },
+      { allowConstantExport: off },
     ],
   },
 }
