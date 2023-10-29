@@ -3,6 +3,7 @@ import HomeBanner from './HomeBanner/HomeBanner';
 import FoodCarousel from './FoodCarousel/FoodCarousel';
 import Boss from './Boss/Boss';
 import CallUs from './CallUs/CallUs';
+import OurMenu from './OurMenu/OurMenu';
 
 const Home = () => {
     return (
@@ -11,6 +12,7 @@ const Home = () => {
             <FoodCarousel></FoodCarousel>
             <Boss></Boss>
             <CallUs></CallUs>
+            <OurMenu></OurMenu>
         </div>
     );
 };
