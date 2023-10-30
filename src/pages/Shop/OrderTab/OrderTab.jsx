@@ -2,7 +2,7 @@ const OrderTab = ({ items }) => {
     return (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {
-                items.map(item => <div className="card bg-[#F3F3F3] rounded-none">
+                items.map(item => <div key={item._id} className="card bg-[#F3F3F3] rounded-none">
                     {/* image */}
                     <figure><img src={item?.image} alt="food" className="w-full" /></figure>
                     <div className="card-body">
