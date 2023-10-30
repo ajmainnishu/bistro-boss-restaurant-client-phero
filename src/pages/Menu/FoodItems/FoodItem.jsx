@@ -16,7 +16,7 @@ const FoodItem = ({ items, img, title }) => {
                 </div>
                 {/* button */}
                 <div className="text-center">
-                    <Link className="btn bg-transparent border-0 text-[#1F2937] text-xl px-7 font-semibold border-b-2 border-[#1F2937]">order your favourite food</Link>
+                    <Link to={`/shop/${title}`} className="btn bg-transparent border-0 text-[#1F2937] text-xl px-7 font-semibold border-b-2 border-[#1F2937]">order your favourite food</Link>
                 </div>
             </div>
         </div>

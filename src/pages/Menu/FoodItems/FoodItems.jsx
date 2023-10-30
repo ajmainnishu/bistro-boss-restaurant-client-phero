@@ -1,5 +1,4 @@
 import useFetchData from "../../../hooks/useFetchData/useFetchData";
-import MenuItems from "../../../shared/MenuItems/MenuItems";
 import SectionTitle from "../../../shared/SectionTitle/SectionTitle";
 import FoodItem from "./FoodItem";
 import dessertImg from '../../../assets/images/menu/foodItems/dessert-bg.jpg';
@@ -11,14 +10,12 @@ const FoodItems = () => {
     // fetch data
     const [menu] = useFetchData();
     const salads = menu.filter(item => item.category === 'salad');
-    // const drinks = menu.filter(item => item.category === 'drinks');
     const desserts = menu.filter(item => item.category === 'dessert');
-    // const popular = menu.filter(item => item.category === 'popular');
     const pizzas = menu.filter(item => item.category === 'pizza')
     const soups = menu.filter(item => item.category === 'soup');
     const offered = menu.filter(item => item.category === 'offered');
     return (
-        <div>
+        <div className="mt-32">
             {/* section title */}
             <SectionTitle title={"TODAY'S OFFER"} subTitle={"Don't miss"}></SectionTitle>
             <div className="mt-12 space-y-12">
