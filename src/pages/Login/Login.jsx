@@ -1,19 +1,38 @@
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import signImg from '../../assets/images/sign/sign.png';
 import { FaFacebookF, FaGoogle, FaGithub } from 'react-icons/fa';
-import { useContext } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../provider/AuthProvider';
 import { useForm } from 'react-hook-form';
 import Swal from 'sweetalert2';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { loadCaptchaEnginge, LoadCanvasTemplate, validateCaptcha } from 'react-simple-captcha';
 
 const Login = () => {
     const { userLogIn, googleLogIn, githubLogIn, facebookLogIn, } = useContext(AuthContext);
+    // login button disable state
+    const [disabled, setDisabled] = useState(true);
     const navigate = useNavigate();
     const location = useLocation();
     const from = location.state?.from?.pathname || '/';
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
+    // captcha reload
+    useEffect(() => {
+        loadCaptchaEnginge(6);
+    }, [])
+    // captcha button
+    const handleValidateCaptcha = e => {
+        const user_captcha_value = e.target.value;
+        if(e.target.value === 'Enter') {
+            console.log('hello')
+        }
+        if (validateCaptcha(user_captcha_value)) {
+            setDisabled(false);
+        } else {
+            setDisabled(true);
+        }
+    }
     // login button
     const onSubmit = data => {
         userLogIn(data.email, data.password)
@@ -113,9 +132,18 @@ const Login = () => {
                                     <input type="password" {...register("password", { required: true })} placeholder="Enter your password" className="input input-bordered rounded" />
                                     {errors.password && <span className='text-red-600 font-semibold'>Password field is required</span>}
                                 </div>
+                                {/* captcha */}
+                                <div className="form-control">
+                                    <label className="label">
+                                        <span className="label-text">
+                                            <LoadCanvasTemplate />
+                                        </span>
+                                    </label>
+                                    <input onBlur={handleValidateCaptcha} type="text" placeholder="Type here" className="input input-bordered rounded" />
+                                </div>
                                 {/* button */}
                                 <div className="form-control mt-6">
-                                    <button className="btn bg-[#D1A054] border-0 capitalize text-white text-xl font-bold">Sign In</button>
+                                    <button disabled={disabled} className="btn bg-[#D1A054] border-0 capitalize text-white text-xl font-bold">Sign In</button>
                                 </div>
                             </form>
                             {/* login page button */}
