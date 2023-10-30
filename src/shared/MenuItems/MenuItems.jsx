@@ -1,7 +1,7 @@
 const MenuItems = ({ items }) => {
     const { name, recipe, image, price } = items;
     return (
-        <div className="flex border-2 p-5 rounded-lg md:border-none md:p-0 md:rounded-none flex-col-reverse md:flex-row gap-x-1">
+        <div className="flex md:justify-between border-2 p-5 rounded-lg md:border-none md:p-0 md:rounded-none flex-col-reverse md:flex-row gap-x-1">
             <div className="flex flex-col md:flex-row gap-8 items-center">
                 <img src={image} alt="menu item image" className="w-[118px] h-[104px]" style={{ borderRadius: '0 200px 200px 200px' }} />
                 <div className="space-y-1.5">
