@@ -6,6 +6,7 @@ import CallUs from './CallUs/CallUs';
 import OurMenu from './OurMenu/OurMenu';
 import Testimonials from './Testimonials/Testimonials';
 import { Helmet } from 'react-helmet-async';
+import FromOurMenu from './FromOurMenu/FromOurMenu';
 
 const Home = () => {
     return (
@@ -17,6 +18,7 @@ const Home = () => {
             <div className='w-10/12 lg:w-9/12 mx-auto space-y-20 md:space-y-32'>
                 <FoodCarousel></FoodCarousel>
                 <Boss></Boss>
+                <FromOurMenu></FromOurMenu>
                 <CallUs></CallUs>
             </div>
             <OurMenu></OurMenu>
