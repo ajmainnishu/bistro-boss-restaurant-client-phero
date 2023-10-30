@@ -7,6 +7,7 @@ import Contact from "../pages/Contact/Contact";
 import SignUp from "../pages/SignUp/SignUp";
 import Login from "../pages/Login/Login";
 import PrivateRoute from "./PrivateRoute";
+import EmptyPage from "../pages/EmptyPage/EmptyPage";
 
 const router = createBrowserRouter([
   {
@@ -36,6 +37,10 @@ const router = createBrowserRouter([
       {
         path: 'signup',
         element: <SignUp />
+      },
+      {
+        path: '*',
+        element: <EmptyPage />
       }
     ]
   },
