@@ -1,6 +1,6 @@
 const OrderTab = ({ items }) => {
     return (
-        <div className="w-10/12 lg:w-9/12 mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {
                 items.map(item => <div className="card bg-[#F3F3F3] rounded-none">
                     {/* image */}

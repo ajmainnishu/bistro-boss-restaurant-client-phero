@@ -19,7 +19,7 @@ const ShopItems = () => {
     const pizzas = menu.filter(item => item.category === 'pizza')
     const soups = menu.filter(item => item.category === 'soup');
     return (
-        <div className="mt-20 md:mt-32 mb-24">
+        <div className="mt-20 md:mt-32 mb-24 w-10/12 lg:w-9/12 mx-auto">
             <Tabs selectedIndex={tabIndex} onSelect={(index) => setTabIndex(index)}>
                 <TabList className={'text-center mb-12 flex flex-wrap justify-center gap-10 lg:gap-14'}>
                     <Tab className={'text-[#151515] text-2xl font-medium hover:underline cursor-pointer hover:text-[#BB8506] hover:font-bold'}>SALAD</Tab>
