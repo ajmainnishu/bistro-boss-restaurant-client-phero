@@ -58,7 +58,11 @@ const Navigation = () => {
                 <div>
                     {/* button */}
                     <ul className="menu menu-horizontal px-1 items-center ps-0">
-                        <img src={cartImg} alt="cart image" className="w-[62px] hidden md:block" />
+                        {/* <img src={cartImg} alt="cart image" className="w-[62px] hidden md:block" /> */}
+                        <button className="btn">
+                            Inbox
+                            <div className="badge badge-secondary">+99</div>
+                        </button>
                         {/* login button */}
                         {!user && <li><Link to={`/login`} className="font-extrabold text-xl hover:text-[#EEFF25]">LOGIN</Link></li>}
                         {/* log out button */}
