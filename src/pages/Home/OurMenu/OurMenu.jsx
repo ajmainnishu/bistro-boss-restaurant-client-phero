@@ -21,7 +21,18 @@ const OurMenu = () => {
                         <p className="text-2xl font-normal">{moment().format('MMMM D, YYYY')}</p>
                         <p className="text-2xl font-normal">WHERE CAN I GET SOME?</p>
                         <p className="text-xl font-normal leading-7">Lorem ipsum dolor sit amet consectetur adipisicing elit. Error voluptate facere, deserunt dolores maiores quod nobis quas quasi. Eaque repellat recusandae ad laudantium tempore consequatur consequuntur omnis ullam maxime tenetur.</p>
-                        <button className="btn bg-transparent border-0 text-white text-xl font-semibold border-b-2 hover:text-black mt-6">READ MORE</button>
+                        {/* modal button */}
+                        <button className="btn bg-transparent border-0 text-white text-xl font-semibold border-b-2 hover:text-black mt-6" onClick={() => document.getElementById('my_modal_5').showModal()}>READ MORE</button>
+                        <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle">
+                            <div className="modal-box text-black">
+                                <p className='italic'><small>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto voluptates vero est inventore tenetur totam assumenda vel in sed quasi quae repellat impedit soluta excepturi nobis, rerum ad sint quidem iure eveniet. Nesciunt, voluptatibus pariatur, sequi eum neque similique laboriosam modi, natus nisi amet iusto placeat molestias aperiam repudiandae quia voluptatem impedit rem incidunt voluptate! Eos exercitationem ipsam fugit perspiciatis modi incidunt esse maxime cumque non vero, illum eligendi rerum doloribus aut voluptate dolorum aliquid dicta. Odit provident enim sequi rerum vitae accusamus autem quo, minus labore tempore quibusdam, quasi eius distinctio, ullam commodi quam eligendi sint ab consequatur! Earum.</small></p>
+                                <div className="modal-action">
+                                    <form method="dialog">
+                                        <button className="btn btn-xs">Close</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </dialog>
                     </div>
                 </div>
             </div>

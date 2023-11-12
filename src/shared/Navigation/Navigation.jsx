@@ -3,7 +3,8 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvider";
 import Swal from "sweetalert2";
 import userImg from '../../assets/images/navigation/userprofile.png';
-import cartImg from '../../assets/images/navigation/cart.png';
+import useCart from "../../hooks/useCart/useCart";
+import { FaShoppingCart } from 'react-icons/fa';
 
 const Navigation = () => {
     // pages link
@@ -14,6 +15,7 @@ const Navigation = () => {
         <li><Link to={`/menu`} className="font-extrabold text-xl hover:text-[#EEFF25]">OUR MENU</Link></li>
         <li><Link to={`/shop/salads`} className="font-extrabold text-xl hover:text-[#EEFF25] pe-0">OUR SHOP</Link></li>
     </>
+    const [cart] = useCart();
     const { user, userLogOut } = useContext(AuthContext);
     // log out button
     const handleLogOut = () => {
@@ -58,11 +60,11 @@ const Navigation = () => {
                 <div>
                     {/* button */}
                     <ul className="menu menu-horizontal px-1 items-center ps-0">
-                        {/* <img src={cartImg} alt="cart image" className="w-[62px] hidden md:block" /> */}
-                        <button className="btn">
-                            Inbox
-                            <div className="badge badge-secondary">+99</div>
-                        </button>
+                        {/* cart */}
+                        {user && <button className="ms-2">
+                            <FaShoppingCart className="text-xl" />
+                            <div className="badge absolute bg-red-500 border-0">{cart.length || 0}</div>
+                        </button>}
                         {/* login button */}
                         {!user && <li><Link to={`/login`} className="font-extrabold text-xl hover:text-[#EEFF25]">LOGIN</Link></li>}
                         {/* log out button */}
