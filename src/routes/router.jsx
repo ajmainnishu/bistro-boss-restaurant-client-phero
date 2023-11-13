@@ -10,6 +10,7 @@ import EmptyPage from "../pages/EmptyPage/EmptyPage";
 import Main from "../Layout/Main";
 import Dashboard from "../Layout/Dashboard";
 import MyCart from "../pages/Dashboard/MyCart/MyCart";
+import AllUsers from "../pages/Dashboard/AllUsers/AllUsers";
 
 const router = createBrowserRouter([
   {
@@ -53,6 +54,10 @@ const router = createBrowserRouter([
       {
         path: 'mycart',
         element: <MyCart />
+      },
+      {
+        path: 'allusers',
+        element: <AllUsers />
       }
     ]
   }

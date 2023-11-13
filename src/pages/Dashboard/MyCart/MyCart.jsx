@@ -1,4 +1,3 @@
-import React from 'react';
 import useCart from '../../../hooks/useCart/useCart';
 import { FaTrashAlt } from 'react-icons/fa';
 import SectionTitle from '../../../shared/SectionTitle/SectionTitle';
