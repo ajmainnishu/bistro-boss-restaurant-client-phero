@@ -3,16 +3,18 @@ import { FaHome, FaCalendarAlt, FaWallet, FaShoppingCart, FaBars, FaShoppingBag,
 
 const Dashboard = () => {
     // admin check
-    const isAdmin = true;
+    const isAdmin = false;
     return (
         <div>
             <div className="drawer lg:drawer-open">
                 <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
-                <div className="drawer-content flex flex-col items-center justify-center">
+                <div className="drawer-content">
                     {/* outlet */}
                     <Outlet></Outlet>
                     {/* button */}
-                    <label htmlFor="my-drawer-2" className="btn bg-[#D1A054] drawer-button lg:hidden rounded">Open drawer</label>
+                    <div className="text-center">
+                        <label htmlFor="my-drawer-2" className="btn bg-[#D1A054] drawer-button lg:hidden rounded my-10">Open drawer</label>
+                    </div>
                 </div>
                 <div className="drawer-side">
                     <label htmlFor="my-drawer-2" aria-label="close sidebar" className="drawer-overlay"></label>
@@ -36,7 +38,7 @@ const Dashboard = () => {
                                 <li className="text-[#151515] font-cinzel text-base font-medium"><Link className="hover:text-white hover:font-bold"><FaHome className="text-2xl" />USER HOME</Link></li>
                                 <li className="text-[#151515] font-cinzel text-base font-medium"><Link className="hover:text-white hover:font-bold"><FaCalendarAlt className="text-2xl" />RESERVATION</Link></li>
                                 <li className="text-[#151515] font-cinzel text-base font-medium"><Link className="hover:text-white hover:font-bold"><FaWallet className="text-2xl" />PAYMENT HISTORY</Link></li>
-                                <li className="text-[#151515] font-cinzel text-base font-medium"><Link className="hover:text-white hover:font-bold"><FaShoppingCart className="text-2xl" />MY CART</Link></li>
+                                <li className="text-[#151515] font-cinzel text-base font-medium"><Link to={`mycart`} className="hover:text-white hover:font-bold"><FaShoppingCart className="text-2xl" />MY CART</Link></li>
                                 <li className="text-[#151515] font-cinzel text-base font-medium"><Link className="hover:text-white hover:font-bold"><FaDumpster className="text-2xl" />ADD REVIEW</Link></li>
                                 <li className="text-[#151515] font-cinzel text-base font-medium"><Link className="hover:text-white hover:font-bold"><FaCalendarAlt className="text-2xl" />MY BOOKING</Link></li>
                             </>

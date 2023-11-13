@@ -9,6 +9,7 @@ import PrivateRoute from "./PrivateRoute";
 import EmptyPage from "../pages/EmptyPage/EmptyPage";
 import Main from "../Layout/Main";
 import Dashboard from "../Layout/Dashboard";
+import MyCart from "../pages/Dashboard/MyCart/MyCart";
 
 const router = createBrowserRouter([
   {
@@ -50,7 +51,8 @@ const router = createBrowserRouter([
     element: <Dashboard />,
     children: [
       {
-        
+        path: 'mycart',
+        element: <MyCart />
       }
     ]
   }
