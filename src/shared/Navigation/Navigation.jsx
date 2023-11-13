@@ -11,7 +11,7 @@ const Navigation = () => {
     const nav = <>
         <li><Link to={`/`} className="font-extrabold text-xl hover:text-[#EEFF25]">HOME</Link></li>
         <li><Link to={`/contact`} className="font-extrabold text-xl hover:text-[#EEFF25]">CONTACT US</Link></li>
-        <li><Link className="font-extrabold text-xl hover:text-[#EEFF25]">DASHBOARD</Link></li>
+        <li><Link to={`/dashboard`} className="font-extrabold text-xl hover:text-[#EEFF25]">DASHBOARD</Link></li>
         <li><Link to={`/menu`} className="font-extrabold text-xl hover:text-[#EEFF25]">OUR MENU</Link></li>
         <li><Link to={`/shop/salads`} className="font-extrabold text-xl hover:text-[#EEFF25] pe-0">OUR SHOP</Link></li>
     </>
