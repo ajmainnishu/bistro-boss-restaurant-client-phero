@@ -1,6 +1,5 @@
 import { Link, useNavigate } from 'react-router-dom';
 import signImg from '../../assets/images/sign/sign.png';
-import { FaFacebookF, FaGoogle, FaGithub } from 'react-icons/fa';
 import './SignUp.css';
 import { useForm } from 'react-hook-form';
 import { useContext } from 'react';
@@ -8,9 +7,10 @@ import { AuthContext } from '../../provider/AuthProvider';
 import Swal from 'sweetalert2';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import SocialLogin from '../../shared/SocialLogin/SocialLogin';
 
 const SignUp = () => {
-    const { createUser, userProfileUpdate, googleLogIn, facebookLogIn, githubLogIn } = useContext(AuthContext);
+    const { createUser, userProfileUpdate } = useContext(AuthContext);
     const navigate = useNavigate();
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
     // fom submit
@@ -21,73 +21,35 @@ const SignUp = () => {
                 // user name update
                 userProfileUpdate(data.name)
                     .then(() => {
-                        // sweet alert
-                        Swal.fire({
-                            position: 'top-end',
-                            icon: 'success',
-                            title: 'Create Account Successfully',
-                            showConfirmButton: false,
-                            timer: 1500
+                        const userInfo = { name: data.name, email: data.email }
+                        fetch('http://localhost:5000/users', {
+                            method: 'POST',
+                            headers: {
+                                'content-type': 'application/json'
+                            },
+                            body: JSON.stringify(userInfo)
                         })
-                        reset();
-                        // redirect to homepage
-                        navigate('/');
+                            .then(res => res.json())
+                            .then(data => {
+                                if (data.insertedId) {
+                                    // sweet alert
+                                    Swal.fire({
+                                        position: 'top-end',
+                                        icon: 'success',
+                                        title: 'Create Account Successfully',
+                                        showConfirmButton: false,
+                                        timer: 1500
+                                    })
+                                    reset();
+                                    // redirect to homepage
+                                    navigate('/');
+                                }
+                            })
                     })
                     .catch(error => toast(error.message))
             })
             .catch(error => toast(error.message))
     };
-    // facebook login button
-    const handleFacebook = () => {
-        facebookLogIn()
-            .then(() => {
-                // sweet alert
-                Swal.fire({
-                    position: 'top-end',
-                    icon: 'success',
-                    title: 'Create Account Successfully',
-                    showConfirmButton: false,
-                    timer: 1000
-                })
-                // redirect user
-                navigate('/')
-            })
-            .catch(error => toast(error.message));
-    }
-    // google login button
-    const handleGoogle = () => {
-        googleLogIn()
-            .then(() => {
-                // sweet alert
-                Swal.fire({
-                    position: 'top-end',
-                    icon: 'success',
-                    title: 'Create Account Successfully',
-                    showConfirmButton: false,
-                    timer: 1000
-                })
-                // redirect user
-                navigate('/')
-            })
-            .catch(error => toast(error.message));
-    }
-    // github login button
-    const handleGithub = () => {
-        githubLogIn()
-            .then(() => {
-                // sweet alert
-                Swal.fire({
-                    position: 'top-end',
-                    icon: 'success',
-                    title: 'Create Account Successfully',
-                    showConfirmButton: false,
-                    timer: 1000
-                })
-                // redirect user
-                navigate('/')
-            })
-            .catch(error => toast(error.message));
-    }
     return (
         <div className='form-bg'>
             <div className='w-10/12 lg:w-9/12 mx-auto py-32'>
@@ -134,20 +96,8 @@ const SignUp = () => {
                             {/* login page button */}
                             <p className='text-center text-[#D1A054] text-xl font-medium mt-8 lg:mt-0'>Already registered? <Link to={`/login`} className='font-bold'>Go to log in</Link></p>
                             <p className='text-center text-[444444] text-xl font-medium mt-6 mb-8'>Or sign up with</p>
-                            <div className='flex gap-11 justify-center'>
-                                {/* facebook */}
-                                <button onClick={handleFacebook} className="btn btn-circle btn-outline text-[#444444] text-2xl">
-                                    <FaFacebookF />
-                                </button>
-                                {/* google */}
-                                <button onClick={handleGoogle} className="btn btn-circle btn-outline text-[#444444] text-2xl">
-                                    <FaGoogle />
-                                </button>
-                                {/* github */}
-                                <button onClick={handleGithub} className="btn btn-circle btn-outline text-[#444444] text-2xl">
-                                    <FaGithub />
-                                </button>
-                            </div>
+                            {/* social media login */}
+                            <SocialLogin></SocialLogin>
                         </div>
                     </div>
                 </div>

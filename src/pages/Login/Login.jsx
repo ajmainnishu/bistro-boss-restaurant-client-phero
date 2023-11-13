@@ -1,6 +1,5 @@
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import signImg from '../../assets/images/sign/sign.png';
-import { FaFacebookF, FaGoogle, FaGithub } from 'react-icons/fa';
 import { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../provider/AuthProvider';
 import { useForm } from 'react-hook-form';
@@ -8,9 +7,10 @@ import Swal from 'sweetalert2';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { loadCaptchaEnginge, LoadCanvasTemplate, validateCaptcha } from 'react-simple-captcha';
+import SocialLogin from '../../shared/SocialLogin/SocialLogin';
 
 const Login = () => {
-    const { userLogIn, googleLogIn, githubLogIn, facebookLogIn, } = useContext(AuthContext);
+    const { userLogIn } = useContext(AuthContext);
     // login button disable state
     const [disabled, setDisabled] = useState(true);
     const navigate = useNavigate();
@@ -24,7 +24,7 @@ const Login = () => {
     // captcha button
     const handleValidateCaptcha = e => {
         const user_captcha_value = e.target.value;
-        if(e.target.value === 'Enter') {
+        if (e.target.value === 'Enter') {
             console.log('hello')
         }
         if (validateCaptcha(user_captcha_value)) {
@@ -46,57 +46,6 @@ const Login = () => {
                     timer: 1000
                 })
                 reset();
-                // redirect user
-                navigate(from, { replace: true });
-            })
-            .catch(error => toast(error.message));
-    }
-    // facebook login button
-    const handleFacebook = () => {
-        facebookLogIn()
-            .then(() => {
-                // sweet alert
-                Swal.fire({
-                    position: 'top-end',
-                    icon: 'success',
-                    title: 'Login Successfully',
-                    showConfirmButton: false,
-                    timer: 1000
-                })
-                // redirect user
-                navigate(from, { replace: true });
-            })
-            .catch(error => toast(error.message));
-    }
-    // google login button
-    const handleGoogle = () => {
-        googleLogIn()
-            .then(() => {
-                // sweet alert
-                Swal.fire({
-                    position: 'top-end',
-                    icon: 'success',
-                    title: 'Login Successfully',
-                    showConfirmButton: false,
-                    timer: 1000
-                })
-                // redirect user
-                navigate(from, { replace: true });
-            })
-            .catch(error => toast(error.message));
-    }
-    // github login button
-    const handleGithub = () => {
-        githubLogIn()
-            .then(() => {
-                // sweet alert
-                Swal.fire({
-                    position: 'top-end',
-                    icon: 'success',
-                    title: 'Login Successfully',
-                    showConfirmButton: false,
-                    timer: 1000
-                })
                 // redirect user
                 navigate(from, { replace: true });
             })
@@ -149,20 +98,8 @@ const Login = () => {
                             {/* login page button */}
                             <p className='text-center text-[#D1A054] text-xl font-medium mt-8 lg:mt-0'>New here? <Link to={`/signup`} className='font-bold'>Create a New Account</Link></p>
                             <p className='text-center text-[444444] text-xl font-medium mt-6 mb-4'>Or sign in with</p>
-                            <div className='flex gap-11 justify-center'>
-                                {/* facebook */}
-                                <button onClick={handleFacebook} className="btn btn-circle btn-outline text-[#444444] text-2xl">
-                                    <FaFacebookF />
-                                </button>
-                                {/* google */}
-                                <button onClick={handleGoogle} className="btn btn-circle btn-outline text-[#444444] text-2xl">
-                                    <FaGoogle />
-                                </button>
-                                {/* github */}
-                                <button onClick={handleGithub} className="btn btn-circle btn-outline text-[#444444] text-2xl">
-                                    <FaGithub />
-                                </button>
-                            </div>
+                            {/* social media login */}
+                            <SocialLogin></SocialLogin>
                         </div>
                     </div>
                 </div>
