@@ -3,7 +3,7 @@ import { FaHome, FaCalendarAlt, FaWallet, FaShoppingCart, FaBars, FaShoppingBag,
 
 const Dashboard = () => {
     // admin check
-    const isAdmin = false;
+    const isAdmin = true;
     return (
         <div>
             <div className="drawer lg:drawer-open">

@@ -1,10 +1,43 @@
 import useUser from "../../../hooks/useUser/useUser";
 import SectionTitle from "../../../shared/SectionTitle/SectionTitle";
-import { FaTrashAlt, FaUsers } from 'react-icons/fa';
+import { FaTrashAlt, FaUsers, FaUserGraduate } from 'react-icons/fa';
 import Swal from 'sweetalert2';
 
 const AllUsers = () => {
     const [users, refetch] = useUser();
+    // update button
+    const handleUpdate = user => {
+        // sweet alert
+        Swal.fire({
+            title: "Are you sure to Make Admin?",
+            icon: "question",
+            showCancelButton: true,
+            confirmButtonColor: "#D1A054",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // fetch data server
+                fetch(`http://localhost:5000/users/${user._id}`, {
+                    method: 'PATCH',
+                    headers: {
+                        'content-type': 'application/json'
+                    }
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.modifiedCount > 0) {
+                            // reload data
+                            refetch();
+                            Swal.fire({
+                                title: `${user.name} is an admin`,
+                                icon: "success"
+                            });
+                        }
+                    })
+            }
+        });
+    }
     // delete button
     const handleDelete = user => {
         // sweet alert
@@ -63,8 +96,8 @@ const AllUsers = () => {
                                 <td className='text-[#151515] font-bold text-xl'>{index + 1}</td>
                                 <td className='text-[#737373] text-base font-normal break-words'>{user?.name}</td>
                                 <td className='text-[#737373] text-base font-normal break-words'>{user?.email}</td>
-                                <td>
-                                    <button className="p-3 bg-[#D1A054] rounded hover:cursor-default"><FaUsers className='text-2xl text-white' /></button>
+                                <td className="tooltip tooltip-left" data-tip={user.role === 'admin' ? 'Admin' : 'User'}>
+                                    <button onClick={() => handleUpdate(user)} className="btn bg-[#D1A054] rounded">{user.role === 'admin' ? <FaUserGraduate className='text-2xl' /> : <FaUsers className='text-2xl text-white' />}</button>
                                 </td>
                                 {/* delete button */}
                                 <th>
