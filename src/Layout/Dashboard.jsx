@@ -21,7 +21,7 @@ const Dashboard = () => {
                     <ul className="menu p-4 space-y-2.5 w-80 min-h-full bg-[#D1A054] text-base-content">
                         {/* website logo */}
                         <li className="mb-14">
-                            <Link to={`/`} className="flex flex-col items-start">
+                            <Link to={`/`} className="flex flex-col items-start hover:bg-transparent">
                                 <span className="font-[cinzel] font-[900] md:text-2xl text-xl text-[#151515]">BISTRO BOSS</span>
                                 <span className="font-[cinzel] font-bold md:text-lg">RESTAURANT</span>
                             </Link>
