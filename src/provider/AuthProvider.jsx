@@ -59,12 +59,12 @@ const AuthProvider = ({ children }) => {
             if (currentUser) {
                 axios.post('http://localhost:5000/jwt', { email: currentUser.email })
                     .then(data => {
-                        localStorage.setItem('bistro-boss-jwt-token', data.data)
+                        localStorage.setItem('bistro-boss-jwt-token', data.data);
+                        setLoading(false);
                     })
             } else {
                 localStorage.removeItem('bistro-boss-jwt-token');
             }
-            setLoading(false);
         })
         return () => {
             return unsubscribe();

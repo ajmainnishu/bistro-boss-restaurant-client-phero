@@ -1,9 +1,10 @@
 import { Link, Outlet } from "react-router-dom";
 import { FaHome, FaCalendarAlt, FaWallet, FaShoppingCart, FaBars, FaShoppingBag, FaEnvelope, FaDumpster, FaUsers, FaBook, FaUtensils, FaListUl } from 'react-icons/fa';
+import useAdmin from "../hooks/useAdmin/useAdmin";
 
 const Dashboard = () => {
     // admin check
-    const isAdmin = true;
+    const [isAdmin] = useAdmin();
     return (
         <div>
             <div className="drawer lg:drawer-open">

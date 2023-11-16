@@ -1,12 +1,11 @@
-import { useContext } from "react";
-import { AuthContext } from "../../../provider/AuthProvider";
 import useCart from "../../../hooks/useCart/useCart";
 import Swal from "sweetalert2";
 import { useLocation, useNavigate } from "react-router-dom";
+import useAuth from "../../../hooks/useAuth/useAuth";
 
 const OrderTab = ({ items }) => {
     // user state
-    const { user } = useContext(AuthContext);
+    const { user } = useAuth();
     // email fetch state
     const [, refetch] = useCart();
     const navigate = useNavigate();

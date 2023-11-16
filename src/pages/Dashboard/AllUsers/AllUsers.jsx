@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import useUser from "../../../hooks/useUser/useUser";
 import SectionTitle from "../../../shared/SectionTitle/SectionTitle";
 import { FaTrashAlt, FaUsers, FaUserGraduate } from 'react-icons/fa';
@@ -72,6 +73,10 @@ const AllUsers = () => {
     }
     return (
         <div className='bg-[#f6f6f6] pt-12 pb-20'>
+            {/* website title dynamic */}
+            <Helmet>
+                <title>Bistro Boss | All Users</title>
+            </Helmet>
             {/* top section title */}
             <SectionTitle title={'MANAGE ALL USERS'} subTitle={'How many??'}></SectionTitle>
             <div className="overflow-x-auto w-10/12 mx-auto mt-16 space-y-4 bg-white p-12">

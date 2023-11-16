@@ -2,6 +2,7 @@ import useCart from '../../../hooks/useCart/useCart';
 import { FaTrashAlt } from 'react-icons/fa';
 import SectionTitle from '../../../shared/SectionTitle/SectionTitle';
 import Swal from 'sweetalert2';
+import { Helmet } from 'react-helmet-async';
 
 const MyCart = () => {
     const [cart, refetch] = useCart();
@@ -41,6 +42,10 @@ const MyCart = () => {
     }
     return (
         <div className='bg-[#f6f6f6] pt-12 pb-20'>
+            {/* website title dynamic */}
+            <Helmet>
+                <title>Bistro Boss | My Cart</title>
+            </Helmet>
             {/* top section title */}
             <SectionTitle title={'WANNA ADD MORE?'} subTitle={'My Cart'}></SectionTitle>
             <div className="overflow-x-auto w-10/12 mx-auto mt-16 space-y-8 bg-white p-14">

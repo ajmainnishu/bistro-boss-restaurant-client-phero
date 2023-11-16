@@ -1,13 +1,12 @@
 import { useLocation, useNavigate } from 'react-router-dom';
 import { FaFacebookF, FaGoogle, FaGithub } from 'react-icons/fa';
-import { useContext } from 'react';
 import Swal from 'sweetalert2';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { AuthContext } from '../../provider/AuthProvider';
+import useAuth from '../../hooks/useAuth/useAuth';
 
 const SocialLogin = () => {
-    const { googleLogIn, facebookLogIn, githubLogIn } = useContext(AuthContext);
+    const { googleLogIn, facebookLogIn, githubLogIn } = useAuth();
     const navigate = useNavigate();
     const location = useLocation();
     const from = location.state?.from?.pathname || '/';
