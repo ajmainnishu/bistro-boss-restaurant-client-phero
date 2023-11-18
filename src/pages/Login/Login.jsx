@@ -92,7 +92,7 @@ const Login = () => {
                                 </div>
                                 {/* button */}
                                 <div className="form-control mt-6">
-                                    <button disabled={disabled} className="btn bg-[#D1A054] border-0 capitalize text-white text-xl font-bold">Sign In</button>
+                                    <button disabled={false} className="btn bg-[#D1A054] border-0 capitalize text-white text-xl font-bold">Sign In</button>
                                 </div>
                             </form>
                             {/* login page button */}

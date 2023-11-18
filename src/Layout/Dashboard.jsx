@@ -31,7 +31,7 @@ const Dashboard = () => {
                         {
                             isAdmin ? <>
                                 <li className="text-[#151515] font-cinzel text-base font-medium"><Link className="hover:text-white hover:font-bold"><FaHome className="text-2xl" />ADMIN HOME</Link></li>
-                                <li className="text-[#151515] font-cinzel text-base font-medium"><Link className="hover:text-white hover:font-bold"><FaUtensils className="text-2xl" />ADD ITEMS</Link></li>
+                                <li className="text-[#151515] font-cinzel text-base font-medium"><Link to={`additems`} className="hover:text-white hover:font-bold"><FaUtensils className="text-2xl" />ADD ITEMS</Link></li>
                                 <li className="text-[#151515] font-cinzel text-base font-medium"><Link className="hover:text-white hover:font-bold"><FaListUl className="text-2xl" />MANAGE ITEMS</Link></li>
                                 <li className="text-[#151515] font-cinzel text-base font-medium"><Link className="hover:text-white hover:font-bold"><FaBook className="text-2xl" />MANAGE BOOKINGS</Link></li>
                                 <li className="text-[#151515] font-cinzel text-base font-medium"><Link to={`allusers`} className="hover:text-white hover:font-bold"><FaUsers className="text-2xl" />ALL USERS</Link></li>
