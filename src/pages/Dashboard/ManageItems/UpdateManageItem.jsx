@@ -1,10 +1,39 @@
 import { Helmet } from "react-helmet-async";
 import { useForm } from "react-hook-form";
-import { FaUtensils } from "react-icons/fa";
+import useFetchData from "../../../hooks/useFetchData/useFetchData";
+import { useNavigate, useParams } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const UpdateManageItem = () => {
-    const { register, handleSubmit, reset } = useForm();
-    const onSubmit = () => {
+    const { id } = useParams();
+    const [menu] = useFetchData();
+    // find specific item
+    const menuItem = menu.find(item => item._id === id);
+    const navigate = useNavigate();
+    const { register, handleSubmit } = useForm();
+    // update button
+    const onSubmit = data => {
+        fetch(`http://localhost:5000/menu/${id}`, {
+            method: 'PUT',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.modifiedCount > 0) {
+                    Swal.fire({
+                        position: "top-end",
+                        icon: "success",
+                        title: "Updated Successfully",
+                        showConfirmButton: false,
+                        timer: 1000
+                    });
+                    // redirect manage items
+                    navigate('/dashboard/manageItems')
+                }
+            })
     }
     return (
         <div className="w-10/12 mx-auto pt-12 pb-32 space-y-16">
@@ -20,7 +49,7 @@ const UpdateManageItem = () => {
                         <label className="label ps-0">
                             <span className="text-[#444444] font-semibold text-xl">Recipe name*</span>
                         </label>
-                        <input type="text" {...register("name", { required: true })} placeholder="Recipe name" className="input input-lg input-bordered w-full placeholder:text-[#A1A1A1] placeholder:font-normal placeholder:text-xl" />
+                        <input defaultValue={menuItem?.name} type="text" {...register("name", { required: true })} placeholder="Recipe name" className="input input-lg input-bordered w-full placeholder:text-[#A1A1A1] placeholder:font-normal placeholder:text-xl" />
                     </div>
                     <div className="flex flex-col lg:flex-row gap-x-6 gap-y-4">
                         {/* category */}
@@ -28,7 +57,7 @@ const UpdateManageItem = () => {
                             <label className="label ps-0">
                                 <span className="text-[#444444] font-semibold text-xl">Category*</span>
                             </label>
-                            <select defaultValue={'Category'} {...register("category", { required: true })} className="select select-lg select-bordered text-xl font-normal">
+                            <select defaultValue={menuItem?.category} {...register("category", { required: true })} className="select select-lg select-bordered text-xl font-normal">
                                 <option disabled>Category</option>
                                 <option>salad</option>
                                 <option>pizza</option>
@@ -42,7 +71,7 @@ const UpdateManageItem = () => {
                             <label className="label ps-0">
                                 <span className="text-[#444444] font-semibold text-xl">Price*</span>
                             </label>
-                            <input type="number" step={'any'} {...register("price", { required: true })} placeholder="Price" className="input input-lg input-bordered w-full placeholder:text-[#A1A1A1] placeholder:font-normal placeholder:text-xl" />
+                            <input type="number" defaultValue={menuItem?.price} step={'any'} {...register("price", { required: true })} placeholder="Price" className="input input-lg input-bordered w-full placeholder:text-[#A1A1A1] placeholder:font-normal placeholder:text-xl" />
                         </div>
                     </div>
                     {/* details */}
@@ -50,7 +79,7 @@ const UpdateManageItem = () => {
                         <label className="label ps-0">
                             <span className="text-[#444444] font-semibold text-xl">Recipe Details</span>
                         </label>
-                        <textarea {...register("recipe", { required: true })} className="textarea textarea-bordered h-48 resize-none placeholder:text-[#A1A1A1] placeholder:font-normal placeholder:text-xl" placeholder="Recipe Details"></textarea>
+                        <textarea {...register("recipe", { required: true })} defaultValue={menuItem?.recipe} className="textarea textarea-bordered h-48 resize-none placeholder:text-[#A1A1A1] placeholder:font-normal placeholder:text-xl" placeholder="Recipe Details"></textarea>
                     </div>
                     {/* button */}
                     <div className="text-center">

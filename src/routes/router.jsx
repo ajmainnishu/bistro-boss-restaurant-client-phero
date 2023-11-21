@@ -72,7 +72,7 @@ const router = createBrowserRouter([
         element: <AdminRoute><ManageItems /></AdminRoute>
       },
       {
-        path: 'manageItems/updatemanageitems',
+        path: 'manageItems/updatemanageitems/:id',
         element: <UpdateManageItem />
       }
     ]

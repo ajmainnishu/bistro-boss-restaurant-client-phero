@@ -127,7 +127,7 @@ const ManageItems = () => {
                                 <td className='text-[#737373] text-base font-normal break-words'>${item?.price}</td>
                                 {/* update button */}
                                 <td>
-                                    <Link to={`updatemanageitems`} className="btn bg-[#D1A054] rounded"><FaExternalLinkAlt className='text-2xl text-white hover:text-black' /></Link>
+                                    <Link to={`updatemanageitems/${item._id}`} className="btn bg-[#D1A054] rounded"><FaExternalLinkAlt className='text-2xl text-white hover:text-black' /></Link>
                                 </td>
                                 {/* <td>
                                     <button onClick={() => handleUpdate(item._id)} className="btn bg-[#D1A054] rounded"><FaExternalLinkAlt className='text-2xl text-white hover:text-black' /></button>
