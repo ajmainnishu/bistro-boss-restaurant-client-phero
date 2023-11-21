@@ -10,12 +10,12 @@ const Dashboard = () => {
             <div className="drawer lg:drawer-open">
                 <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
                 <div className="drawer-content">
-                    {/* outlet */}
-                    <Outlet></Outlet>
                     {/* button */}
                     <div className="text-center">
                         <label htmlFor="my-drawer-2" className="btn bg-[#D1A054] drawer-button lg:hidden rounded my-10">Open drawer</label>
                     </div>
+                    {/* outlet */}
+                    <Outlet></Outlet>
                 </div>
                 <div className="drawer-side">
                     <label htmlFor="my-drawer-2" aria-label="close sidebar" className="drawer-overlay"></label>
@@ -32,7 +32,7 @@ const Dashboard = () => {
                             isAdmin ? <>
                                 <li className="text-[#151515] font-cinzel text-base font-medium"><Link className="hover:text-white hover:font-bold"><FaHome className="text-2xl" />ADMIN HOME</Link></li>
                                 <li className="text-[#151515] font-cinzel text-base font-medium"><Link to={`additems`} className="hover:text-white hover:font-bold"><FaUtensils className="text-2xl" />ADD ITEMS</Link></li>
-                                <li className="text-[#151515] font-cinzel text-base font-medium"><Link className="hover:text-white hover:font-bold"><FaListUl className="text-2xl" />MANAGE ITEMS</Link></li>
+                                <li className="text-[#151515] font-cinzel text-base font-medium"><Link to={`manageitems`} className="hover:text-white hover:font-bold"><FaListUl className="text-2xl" />MANAGE ITEMS</Link></li>
                                 <li className="text-[#151515] font-cinzel text-base font-medium"><Link className="hover:text-white hover:font-bold"><FaBook className="text-2xl" />MANAGE BOOKINGS</Link></li>
                                 <li className="text-[#151515] font-cinzel text-base font-medium"><Link to={`allusers`} className="hover:text-white hover:font-bold"><FaUsers className="text-2xl" />ALL USERS</Link></li>
                             </> : <>

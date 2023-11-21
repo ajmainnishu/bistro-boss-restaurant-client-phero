@@ -65,6 +65,7 @@ const AuthProvider = ({ children }) => {
             } else {
                 localStorage.removeItem('bistro-boss-jwt-token');
             }
+            setLoading(false);
         })
         return () => {
             return unsubscribe();
