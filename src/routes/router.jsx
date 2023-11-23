@@ -15,6 +15,7 @@ import AddItems from "../pages/Dashboard/AddItems/AddItems";
 import ManageItems from "../pages/Dashboard/ManageItems/ManageItems";
 import AdminRoute from "./AdminRoute";
 import UpdateManageItem from "../pages/Dashboard/ManageItems/UpdateManageItem";
+import Payment from "../pages/Dashboard/Payment/Payment";
 
 const router = createBrowserRouter([
   {
@@ -74,6 +75,10 @@ const router = createBrowserRouter([
       {
         path: 'manageItems/updatemanageitems/:id',
         element: <UpdateManageItem />
+      },
+      {
+        path: 'payment',
+        element: <Payment />
       }
     ]
   }

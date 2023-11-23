@@ -3,6 +3,7 @@ import { FaTrashAlt } from 'react-icons/fa';
 import SectionTitle from '../../../shared/SectionTitle/SectionTitle';
 import Swal from 'sweetalert2';
 import { Helmet } from 'react-helmet-async';
+import { Link } from 'react-router-dom';
 
 const MyCart = () => {
     const [cart, refetch] = useCart();
@@ -53,7 +54,7 @@ const MyCart = () => {
                 <div className='flex flex-col lg:flex-row justify-between items-center space-y-5 lg:space-y-0'>
                     <p className='text-[#151515] text-3xl font-cinzel font-bold'>TOTAL ORDERS: {cart?.length}</p>
                     <p className='text-[#151515] text-3xl font-cinzel font-bold'>TOTAL PRICE: ${totalPrice}</p>
-                    <button className='btn bg-[#D1A054] text-white text-xl font-cinzel font-bold'>PAY</button>
+                    <Link to={`/dashboard/payment`}><button className='btn bg-[#D1A054] text-white text-xl font-cinzel font-bold'>PAY</button></Link>
                 </div>
                 {/* table */}
                 <table className="table">
