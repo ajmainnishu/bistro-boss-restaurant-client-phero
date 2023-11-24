@@ -5,13 +5,15 @@ import Swal from "sweetalert2";
 import userImg from '../../assets/images/navigation/userprofile.png';
 import useCart from "../../hooks/useCart/useCart";
 import { FaShoppingCart } from 'react-icons/fa';
+import useAdmin from "../../hooks/useAdmin/useAdmin";
 
 const Navigation = () => {
+    const [isAdmin] = useAdmin();
     // pages link
     const nav = <>
         <li><Link to={`/`} className="font-extrabold text-xl hover:text-[#EEFF25]">HOME</Link></li>
         <li><Link to={`/contact`} className="font-extrabold text-xl hover:text-[#EEFF25]">CONTACT US</Link></li>
-        <li><Link to={`/dashboard`} className="font-extrabold text-xl hover:text-[#EEFF25]">DASHBOARD</Link></li>
+        <li><Link to={!isAdmin ? '/dashboard/userhome' : '/dashboard/adminhome'} className="font-extrabold text-xl hover:text-[#EEFF25]">DASHBOARD</Link></li>
         <li><Link to={`/menu`} className="font-extrabold text-xl hover:text-[#EEFF25]">OUR MENU</Link></li>
         <li><Link to={`/shop/salads`} className="font-extrabold text-xl hover:text-[#EEFF25] pe-0">OUR SHOP</Link></li>
     </>

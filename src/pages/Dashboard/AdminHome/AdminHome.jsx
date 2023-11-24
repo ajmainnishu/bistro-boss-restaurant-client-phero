@@ -116,7 +116,7 @@ const AdminHome = () => {
                         </BarChart>
                     </div>
                     {/* pie chart */}
-                    <div className="mx-auto">
+                    <div className="mx-aut">
                         <ResponsiveContainer width="100%" height="100%">
                             <PieChart width={400} height={400}>
                                 <Legend></Legend>

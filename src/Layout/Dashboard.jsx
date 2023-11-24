@@ -37,7 +37,7 @@ const Dashboard = () => {
                                 <li className="text-[#151515] font-cinzel text-base font-medium"><Link to={`allusers`} className="hover:text-white hover:font-bold"><FaUsers className="text-2xl" />ALL USERS</Link></li>
                             </> : <>
                                 <li className="text-[#151515] font-cinzel text-base font-medium"><Link to={`userhome`} className="hover:text-white hover:font-bold"><FaHome className="text-2xl" />USER HOME</Link></li>
-                                <li className="text-[#151515] font-cinzel text-base font-medium"><Link className="hover:text-white hover:font-bold"><FaCalendarAlt className="text-2xl" />RESERVATION</Link></li>
+                                <li className="text-[#151515] font-cinzel text-base font-medium"><Link to={`reservation`} className="hover:text-white hover:font-bold"><FaCalendarAlt className="text-2xl" />RESERVATION</Link></li>
                                 <li className="text-[#151515] font-cinzel text-base font-medium"><Link className="hover:text-white hover:font-bold"><FaWallet className="text-2xl" />PAYMENT HISTORY</Link></li>
                                 <li className="text-[#151515] font-cinzel text-base font-medium"><Link to={`mycart`} className="hover:text-white hover:font-bold"><FaShoppingCart className="text-2xl" />MY CART</Link></li>
                                 <li className="text-[#151515] font-cinzel text-base font-medium"><Link className="hover:text-white hover:font-bold"><FaDumpster className="text-2xl" />ADD REVIEW</Link></li>
