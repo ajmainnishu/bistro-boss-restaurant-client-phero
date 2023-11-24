@@ -3,7 +3,6 @@ import useAxiosSecure from "../useAxiosSecure/useAxiosSecure";
 
 const useUser = () => {
     const [axiosSecure] = useAxiosSecure();
-    // const token = localStorage.getItem('bistro-boss-jwt-token');
     const { data: users = [], refetch } = useQuery({
         queryKey: ['users'],
         queryFn: async () => {

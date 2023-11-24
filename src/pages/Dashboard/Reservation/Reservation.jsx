@@ -13,7 +13,9 @@ const Reservation = () => {
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
     // button
     const onSubmit = data => {
-        axiosSecure.post('/bookings', data)
+        const { date, time, guest, name, phone, email } = data;
+        const bookingData = { date, time, guest, name, phone, email, status: 'pending' }
+        axiosSecure.post('/bookings', bookingData)
             .then(res => {
                 if (res.data.insertedId) {
                     reset();

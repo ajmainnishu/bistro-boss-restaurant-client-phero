@@ -19,6 +19,7 @@ import Payment from "../pages/Dashboard/Payment/Payment";
 import AdminHome from "../pages/Dashboard/AdminHome/AdminHome";
 import UserHome from "../pages/Dashboard/UserHome/UserHome";
 import Reservation from "../pages/Dashboard/Reservation/Reservation";
+import ManageBookings from "../pages/Dashboard/ManageBookings/ManageBookings";
 
 const router = createBrowserRouter([
   {
@@ -84,6 +85,10 @@ const router = createBrowserRouter([
         element: <AdminRoute><ManageItems /></AdminRoute>
       },
       {
+        path: 'managebookings',
+        element: <AdminRoute><ManageBookings /></AdminRoute>
+      },
+      {
         path: 'manageItems/updatemanageitems/:id',
         element: <UpdateManageItem />
       },
@@ -93,7 +98,7 @@ const router = createBrowserRouter([
       },
       {
         path: 'reservation',
-        element:  <Reservation />
+        element: <Reservation />
       }
     ]
   }

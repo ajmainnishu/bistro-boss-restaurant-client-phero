@@ -64,7 +64,7 @@ const CheckoutForm = ({ cart, price }) => {
                 quantity: cart.length,
                 cartItems: cart.map(item => item._id),
                 menuItems: cart.map(item => item.menuItemId),
-                orderStatus: 'service pending',
+                orderStatus: 'done',
                 itemName: cart.map(item => item.name)
             }
             axiosSecure.post('/payments', payment)
