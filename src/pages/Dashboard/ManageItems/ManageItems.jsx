@@ -9,62 +9,6 @@ import { Link } from "react-router-dom";
 const ManageItems = () => {
     const [menu, , refetch] = useFetchData();
     const [axiosSecure] = useAxiosSecure();
-    // update button
-    const handleUpdate = id => {
-
-
-
-
-
-        Swal.fire({
-            title: "Do you want to save the changes?",
-            showDenyButton: true,
-            showCancelButton: true,
-            confirmButtonText: "Save",
-            denyButtonText: `Don't save`
-        }).then((result) => {
-            if (result.isConfirmed) {
-                Swal.fire("Saved!", "", "success");
-            } else if (result.isDenied) {
-                Swal.fire("Changes are not saved", "", "info");
-            }
-        });
-
-
-
-
-
-
-
-        // Swal.fire({
-        //     title: "Are you sure?",
-        //     icon: "info",
-        //     showCancelButton: true,
-        //     confirmButtonColor: "#D1A054",
-        //     cancelButtonColor: "#d33",
-        //     confirmButtonText: "Yes, delete it!"
-        // }).then((result) => {
-        //     if (result.isConfirmed) {
-
-        //         axiosSecure.delete(`/menu/${id}`)
-        //             .then(data => {
-        //                 if (data.data.deletedCount > 0) {
-        //                     refetch();
-        //                     Swal.fire({
-        //                         title: "Deleted!",
-        //                         text: "Food item has been deleted.",
-        //                         icon: "success"
-        //                     });
-        //                 }
-        //             })
-        //     }
-        // });
-
-
-
-
-
-    }
     // delete button
     const handleDelete = id => {
         // sweet alert
@@ -129,9 +73,6 @@ const ManageItems = () => {
                                 <td>
                                     <Link to={`updatemanageitems/${item._id}`} className="btn bg-[#D1A054] rounded"><FaExternalLinkAlt className='text-2xl text-white hover:text-black' /></Link>
                                 </td>
-                                {/* <td>
-                                    <button onClick={() => handleUpdate(item._id)} className="btn bg-[#D1A054] rounded"><FaExternalLinkAlt className='text-2xl text-white hover:text-black' /></button>
-                                </td> */}
                                 {/* delete button */}
                                 <td>
                                     <button onClick={() => handleDelete(item._id)} className="btn bg-[#B91C1C] rounded"><FaTrashAlt className='text-2xl text-white hover:text-black' /></button>
