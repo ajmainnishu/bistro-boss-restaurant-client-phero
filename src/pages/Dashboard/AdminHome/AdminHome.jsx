@@ -2,6 +2,7 @@ import { FaStore, FaTruck, FaUsers, FaWallet } from "react-icons/fa";
 import useAdminStats from "../../../hooks/useAdminStats/useAdminStats";
 import useAdminChartData from "../../../hooks/useAdminChartData/useAdminChartData";
 import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, PieChart, Pie, ResponsiveContainer, Legend } from 'recharts';
+import { Helmet } from "react-helmet-async";
 
 const AdminHome = () => {
     // admin stats state
@@ -37,6 +38,10 @@ const AdminHome = () => {
     };
     return (
         <div className="bg-[#f6f6f6] pt-12 pb-20 lg:pb-72">
+            {/* website title dynamic */}
+            <Helmet>
+                <title>Bistro Boss | Admin Home</title>
+            </Helmet>
             <div className="w-11/12 mx-auto">
                 {/* heading */}
                 <h2 className="text-[#151515] font-cinzel font-semibold text-[32px] break-words mb-6">HI, WELCOME BACK!</h2>
@@ -116,7 +121,7 @@ const AdminHome = () => {
                         </BarChart>
                     </div>
                     {/* pie chart */}
-                    <div className="mx-aut">
+                    <div>
                         <ResponsiveContainer width="100%" height="100%">
                             <PieChart width={400} height={400}>
                                 <Legend></Legend>
