@@ -41,7 +41,7 @@ const Dashboard = () => {
                                 <li className="text-[#151515] font-cinzel text-base font-medium"><Link to={`paymenthistory`} className="hover:text-white hover:font-bold"><FaWallet className="text-2xl" />PAYMENT HISTORY</Link></li>
                                 <li className="text-[#151515] font-cinzel text-base font-medium"><Link to={`mycart`} className="hover:text-white hover:font-bold"><FaShoppingCart className="text-2xl" />MY CART</Link></li>
                                 <li className="text-[#151515] font-cinzel text-base font-medium"><Link className="hover:text-white hover:font-bold"><FaDumpster className="text-2xl" />ADD REVIEW</Link></li>
-                                <li className="text-[#151515] font-cinzel text-base font-medium"><Link className="hover:text-white hover:font-bold"><FaCalendarAlt className="text-2xl" />MY BOOKING</Link></li>
+                                <li className="text-[#151515] font-cinzel text-base font-medium"><Link to={`mybookings`} className="hover:text-white hover:font-bold"><FaCalendarAlt className="text-2xl" />MY BOOKING</Link></li>
                             </>
                         }
                         <div className="divider py-4"></div>

@@ -21,6 +21,7 @@ import UserHome from "../pages/Dashboard/UserHome/UserHome";
 import Reservation from "../pages/Dashboard/Reservation/Reservation";
 import ManageBookings from "../pages/Dashboard/ManageBookings/ManageBookings";
 import PaymentHistory from "../pages/Dashboard/PaymentHistory/PaymentHistory";
+import MyBookings from "../pages/Dashboard/MyBookings/MyBookings";
 
 const router = createBrowserRouter([
   {
@@ -100,6 +101,10 @@ const router = createBrowserRouter([
       {
         path: 'paymenthistory',
         element: <PaymentHistory />
+      },
+      {
+        path: 'mybookings',
+        element: <MyBookings />
       }
     ]
   },
