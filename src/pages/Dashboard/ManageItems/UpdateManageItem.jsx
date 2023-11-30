@@ -13,7 +13,7 @@ const UpdateManageItem = () => {
     const { register, handleSubmit } = useForm();
     // update button
     const onSubmit = data => {
-        fetch(`http://localhost:5000/menu/${id}`, {
+        fetch(`https://bistro-boss-restaurant-server-phero.vercel.app/menu/${id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

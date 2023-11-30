@@ -17,7 +17,7 @@ const SocialLogin = () => {
                 const loggedUser = result.user;
                 console.log(loggedUser)
                 const userInfo = { name: loggedUser.displayName, email: loggedUser.email }
-                fetch('http://localhost:5000/users', {
+                fetch('https://bistro-boss-restaurant-server-phero.vercel.app/users', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'
@@ -46,7 +46,7 @@ const SocialLogin = () => {
             .then((result) => {
                 const loggedUser = result.user;
                 const userInfo = { name: loggedUser.displayName, email: loggedUser.email }
-                fetch('http://localhost:5000/users', {
+                fetch('https://bistro-boss-restaurant-server-phero.vercel.app/users', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'
@@ -75,7 +75,7 @@ const SocialLogin = () => {
             .then((result) => {
                 const loggedUser = result.user;
                 const userInfo = { name: loggedUser.displayName, email: loggedUser.email }
-                fetch('http://localhost:5000/users', {
+                fetch('https://bistro-boss-restaurant-server-phero.vercel.app/users', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'

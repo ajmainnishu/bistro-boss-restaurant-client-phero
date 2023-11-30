@@ -19,7 +19,7 @@ const AllUsers = () => {
         }).then((result) => {
             if (result.isConfirmed) {
                 // fetch data server
-                fetch(`http://localhost:5000/users/${user._id}`, {
+                fetch(`https://bistro-boss-restaurant-server-phero.vercel.app/users/${user._id}`, {
                     method: 'PATCH',
                     headers: {
                         'content-type': 'application/json'
@@ -53,7 +53,7 @@ const AllUsers = () => {
         }).then((result) => {
             if (result.isConfirmed) {
                 // fetch data server
-                fetch(`http://localhost:5000/users/${user._id}`, {
+                fetch(`https://bistro-boss-restaurant-server-phero.vercel.app/users/${user._id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())
